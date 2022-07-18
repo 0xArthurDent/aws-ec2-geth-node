@@ -77,7 +77,7 @@ sudo chown ubuntu:ubuntu /mnt/ebs/ethereum
 
 Persist volume mount point. replace */dev/nvme1n1* and */mnt/ebs* to match your values.
 ```
-echo "$(blkid -o export /dev/nvme1n1 | grep ^UUID=) /mnt/ebs xfs defaults,noatime" | tee -a /etc/fstab
+echo "$(blkid -o export /dev/nvme1n1 | grep ^UUID=) /mnt/ebs ext4    defaults,nofail        0       0" | tee -a /etc/fstab
 ```
 
 Create a **geth.service** file with the contents of [geth.run-mainnet.service](./geth.run-mainnet.service)

@@ -1,0 +1,23 @@
+[Unit]
+
+Description=Geth Full Node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+
+WorkingDirectory=/home/ubuntu
+User=ubuntu
+ExecStart=/usr/bin/geth \
+     --datadir /mnt/nvm/ether \
+     --syncmode snap \
+     --maxpeers 500 \
+     --http \
+     --http.api eth,net,web3,txpool \
+     --cache 2048
+
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

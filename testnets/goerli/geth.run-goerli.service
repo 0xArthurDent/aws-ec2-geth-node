@@ -1,0 +1,30 @@
+[Unit]
+
+Description=Geth Goerli Full Node
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+
+WorkingDirectory=/home/ubuntu
+User=ubuntu
+ExecStart=/usr/bin/geth \
+     --goerli  \
+     --datadir /mnt/ebs/ethereum \
+     --syncmode snap \
+     --maxpeers 15 \
+     --light.maxpeers 0 \
+     --identity "example.com" \
+     --http \
+     --http.addr "localhost" \
+     --http.port "8545" \
+     --http.api eth,net,web3,txpool \
+     --cache 1024
+
+TimeoutStopSec=300
+
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

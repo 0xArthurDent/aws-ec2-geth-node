@@ -1,5 +1,7 @@
 # AWS EC2 Geth Node
 
+NOTE: Depractaed since Ethereum moved to Proof-of-Stake
+
 ---
 
 # Ethereum Mainnet
